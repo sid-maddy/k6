@@ -34,8 +34,9 @@ const (
 	TagExpectedResponse
 
 	// System tags not enabled by default.
-	TagIter // non-indexable
-	TagVU   // non-indexable
+	TagIter   // non-indexable
+	TagVU     // non-indexable
+	TagRawURL // non-indexable
 	TagOCSPStatus
 	TagIP
 )
@@ -51,7 +52,7 @@ var DefaultSystemTagSet = SystemTagSet(
 // NonIndexableSystemTags are high cardinality system tags (i.e. metadata).
 //
 //nolint:gochecknoglobals
-var NonIndexableSystemTags = SystemTagSet(TagIter | TagVU)
+var NonIndexableSystemTags = SystemTagSet(TagIter | TagVU | TagRawURL)
 
 // Add adds a tag to tag set.
 func (i *SystemTagSet) Add(tag SystemTag) {

@@ -102,6 +102,7 @@ func (t *transport) measureAndEmitMetrics(unfReq *unfinishedRequest) *finishedRe
 		tagsAndMeta.SetSystemTagOrMetaIfEnabled(enabledTags, metrics.TagURL, nameTagValue)
 	}
 
+	tagsAndMeta.SetSystemTagOrMetaIfEnabled(enabledTags, metrics.TagRawURL, cleanURL)
 	tagsAndMeta.SetSystemTagOrMetaIfEnabled(enabledTags, metrics.TagMethod, unfReq.request.Method)
 
 	if unfReq.err != nil {
